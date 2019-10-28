@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.22.48" id="DataBindings"
+             SeparateXMLFiles="false" Package="view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/WEB-INF/flows/task-flow-main.xml#task-flow-main@createMaster"
+          usageId="view_task_flow_main_task_flow_main_createMasterPageDef"/>
+    <page path="/fragments/viewALL.jsff" usageId="view_viewALLPageDef"/>
+    <page path="/fragments/addMaster.jsff" usageId="view_addMasterPageDef"/>
+    <page path="/fragments/addDetail.jsff" usageId="view_addDetailPageDef"/>
+    <page path="/run.jsf" usageId="view_runPageDef"/>
+    <page path="/WEB-INF/flows/task-flow-main.xml#task-flow-main@careteDetail"
+          usageId="view_task_flow_main_task_flow_main_careteDetailPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="view_task_flow_main_task_flow_main_createMasterPageDef"
+          path="flows.task_flow_main_task_flow_main_createMasterPageDef"/>
+    <page id="view_viewALLPageDef" path="fragments.viewALLPageDef"/>
+    <page id="view_addMasterPageDef" path="fragments.addMasterPageDef"/>
+    <page id="view_addDetailPageDef" path="fragments.addDetailPageDef"/>
+    <page id="view_runPageDef" path="view.pageDefs.runPageDef"/>
+    <page id="view_task_flow_main_task_flow_main_careteDetailPageDef"
+          path="flows.task_flow_main_task_flow_main_careteDetailPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleDataControl" Package="model.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

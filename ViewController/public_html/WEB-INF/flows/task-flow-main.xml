@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="Big5" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="task-flow-main">
+    <default-activity>viewALL</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__11">
+      <managed-bean-name>backingBean</managed-bean-name>
+      <managed-bean-class>view.Backing</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__12">
+      <managed-bean-name>dupRowBean</managed-bean-name>
+      <managed-bean-class>view.DupRow</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <view id="viewALL">
+      <page>/fragments/viewALL.jsff</page>
+    </view>
+    <view id="addMaster">
+      <page>/fragments/addMaster.jsff</page>
+    </view>
+    <view id="addDetail">
+      <page>/fragments/addDetail.jsff</page>
+    </view>
+    <method-call id="createMaster">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="careteDetail">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>viewALL</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>addMaster</from-outcome>
+        <to-activity-id>createMaster</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>editMaster</from-outcome>
+        <to-activity-id>addMaster</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome>editDetail</from-outcome>
+        <to-activity-id>addDetail</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__13">
+        <from-outcome>addDetail</from-outcome>
+        <to-activity-id>careteDetail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>createMaster</from-activity-id>
+      <control-flow-case id="__4">
+        <to-activity-id>addMaster</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>addMaster</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>viewALL</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>addDetail</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>viewALL</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id>careteDetail</from-activity-id>
+      <control-flow-case id="__15">
+        <to-activity-id>addDetail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>
