@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="DepartmentsView"
-  Version="12.2.1.22.48"
+  Version="12.2.1.11.57"
   InheritPersonalization="merge"
   SelectListFlags="1"
   FromListFlags="1"
@@ -14,11 +14,9 @@
   SelectAllAttributes="false"
   PageIterMode="Full"
   ComponentClass="model.view.DepartmentsViewImpl"
-  RowClass="model.view.DepartmentsViewRowImpl"
   AccessMode="DEFAULT">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
-    <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <Variable
     Name="pDepartmentId"
