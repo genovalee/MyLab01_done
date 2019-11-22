@@ -10,7 +10,7 @@
       <f:facet name="info"/>
       <af:panelGroupLayout id="pgl7" halign="center" valign="top" layout="vertical">
         <af:panelGroupLayout id="pgl5" layout="horizontal" inlineStyle="width:1000px" halign="center" valign="top">
-          <af:panelGroupLayout id="pgl8">
+          <af:panelGroupLayout id="pgl8" layout="horizontal">
             <af:selectOneChoice label="#{bindings.DepartmentsView1.label}" required="false"
                                 shortDesc="#{bindings.DepartmentsView1.hints.tooltip}" id="soc1"
                                 binding="#{backingBean.departmentId}">
