@@ -3,7 +3,7 @@
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGroupLayout id="pgl1" halign="center" valign="top" layout="vertical">
     <af:panelGroupLayout id="pgl9" halign="center" valign="top" layout="horizontal" inlineStyle="width:1000px">
-      <af:showDetailHeader text="部門人員資料查詢" disclosed="true" id="sdh1">
+      <af:panelHeader text="部門人員資料查詢" id="sdh1">
         <f:facet name="context"/>
         <f:facet name="toolbar"/>
         <f:facet name="menuBar"/>
@@ -137,7 +137,7 @@
             <f:facet name="statusbar"/>
           </af:panelCollection>
         </af:panelGroupLayout>
-      </af:showDetailHeader>
+      </af:panelHeader>
     </af:panelGroupLayout>
   </af:panelGroupLayout>
   <!--oracle-jdev-comment:preferred-managed-bean-name:backingBean-->

@@ -56,7 +56,7 @@
     <f:facet name="footer">
       <af:panelGroupLayout id="pgl1">
         <af:button text="Submit" id="b1"/>
-        <af:button text="Back" id="b2" action="back"/>
+        <af:button text="Back" id="b2" action="back" immediate="true"/>
       </af:panelGroupLayout>
     </f:facet>
   </af:panelFormLayout>

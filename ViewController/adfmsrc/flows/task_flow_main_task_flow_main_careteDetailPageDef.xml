@@ -3,10 +3,9 @@
                 id="task_flow_main_task_flow_main_careteDetailPageDef" Package="flows" SkipValidation="true">
   <parameters/>
   <executables>
-    <iterator Binds="DepartmentsView1" RangeSize="25" DataControl="AppModuleDataControl" id="DepartmentsView1Iterator"/>
+    <iterator Binds="EmployeesView3" RangeSize="25" DataControl="AppModuleDataControl" id="EmployeesView3Iterator"/>
   </executables>
   <bindings>
-    <action IterBinding="DepartmentsView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
+    <action IterBinding="EmployeesView3Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
   </bindings>
 </pageDefinition>
