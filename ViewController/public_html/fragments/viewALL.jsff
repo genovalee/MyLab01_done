@@ -2,138 +2,143 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGroupLayout id="pgl1" halign="center" valign="top" layout="vertical">
-    <af:showDetailHeader text="部門人員資料查詢" disclosed="true" id="sdh1">
-      <f:facet name="context"/>
-      <f:facet name="toolbar"/>
-      <f:facet name="menuBar"/>
-      <f:facet name="legend"/>
-      <f:facet name="info"/>
-      <af:panelGroupLayout id="pgl7" halign="center" valign="top" layout="vertical">
-        <af:panelGroupLayout id="pgl5" layout="horizontal" inlineStyle="width:1000px" halign="center" valign="top">
-          <af:panelGroupLayout id="pgl8" layout="horizontal">
-            <af:selectOneChoice label="#{bindings.DepartmentsView1.label}" required="false"
-                                shortDesc="#{bindings.DepartmentsView1.hints.tooltip}" id="soc1"
-                                binding="#{backingBean.departmentId}">
-              <f:selectItems value="#{bindings.DepartmentsView1.items}" id="si1"/>
-              <f:validator binding="#{bindings.DepartmentsView1.validator}"/>
-            </af:selectOneChoice>
-            <af:spacer id="s3" width="10"/>
-            <af:button text="Search" id="b9" action="#{backingBean.getByDepartmentId_action}"/>
-            <af:spacer id="s1" width="10"/>
-            <af:button text="Refresh Data" id="b10" action="#{backingBean.refreshData_action}"/>
+    <af:panelGroupLayout id="pgl9" halign="center" valign="top" layout="horizontal" inlineStyle="width:1000px">
+      <af:showDetailHeader text="部門人員資料查詢" disclosed="true" id="sdh1">
+        <f:facet name="context"/>
+        <f:facet name="toolbar"/>
+        <f:facet name="menuBar"/>
+        <f:facet name="legend"/>
+        <f:facet name="info"/>
+        <af:panelGroupLayout id="pgl7" halign="center" valign="top" layout="vertical">
+          <af:panelGroupLayout id="pgl5" layout="horizontal" inlineStyle="width:1000px" halign="center" valign="top">
+            <af:panelGroupLayout id="pgl8" layout="horizontal">
+              <af:selectOneChoice label="#{bindings.DepartmentsView1.label}" required="false"
+                                  shortDesc="#{bindings.DepartmentsView1.hints.tooltip}" id="soc1"
+                                  binding="#{backingBean.departmentId}">
+                <f:selectItems value="#{bindings.DepartmentsView1.items}" id="si1"/>
+                <f:validator binding="#{bindings.DepartmentsView1.validator}"/>
+              </af:selectOneChoice>
+              <af:spacer id="s3" width="10"/>
+              <af:button text="Search" id="b9" action="#{backingBean.getByDepartmentId_action}"/>
+              <af:spacer id="s1" width="10"/>
+              <af:button text="Refresh Data" id="b10" action="#{backingBean.refreshData_action}"/>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout layout="vertical" id="pgl6"/>
           </af:panelGroupLayout>
-          <af:panelGroupLayout layout="vertical" id="pgl6"/>
         </af:panelGroupLayout>
-      </af:panelGroupLayout>
-      <af:panelGroupLayout id="pgl4" halign="center" valign="top" layout="horizontal" inlineStyle="width:1000px">
-        <af:panelFormLayout id="pfl1">
-          <af:panelGroupLayout id="pgl3" halign="start" layout="horizontal">
-            <af:inputText value="#{bindings.DepartmentId.inputValue}" label="#{bindings.DepartmentId.hints.label}"
-                          required="#{bindings.DepartmentId.hints.mandatory}"
-                          columns="#{bindings.DepartmentId.hints.displayWidth}"
-                          maximumLength="#{bindings.DepartmentId.hints.precision}"
-                          shortDesc="#{bindings.DepartmentId.hints.tooltip}" id="it1" autoSubmit="true">
-              <f:validator binding="#{bindings.DepartmentId.validator}"/>
-              <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentId.format}"/>
-            </af:inputText>
-            <af:inputText value="#{bindings.DepartmentName.inputValue}" label="#{bindings.DepartmentName.hints.label}"
-                          required="#{bindings.DepartmentName.hints.mandatory}"
-                          columns="#{bindings.DepartmentName.hints.displayWidth}"
-                          maximumLength="#{bindings.DepartmentName.hints.precision}"
-                          shortDesc="#{bindings.DepartmentName.hints.tooltip}" id="it2" autoSubmit="true">
-              <f:validator binding="#{bindings.DepartmentName.validator}"/>
-            </af:inputText>
-            <af:spacer id="s4" width="10"/>
-            <af:button text="新增" id="b6" action="addMaster"/>
-            <af:spacer id="s2" width="10"/>
-            <af:button text="修改" id="b7" action="editMaster"/>
-          </af:panelGroupLayout>
-        </af:panelFormLayout>
-      </af:panelGroupLayout>
-      <af:panelGroupLayout id="pgl2" halign="center" valign="top" layout="horizontal" inlineStyle="width:1000px">
-        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
-          <f:facet name="menus"/>
-          <f:facet name="toolbar">
-            <af:toolbar id="t2">
-              <af:button text="新增" id="b1"
-                         disabled="#{!bindings.CreateInsert.enabled}" action="addDetail"/>
-              <af:button text="刪除" id="b2" disabled="#{!bindings.Delete1.enabled}"
-                         actionListener="#{bindings.Delete1.execute}"/>
-              <af:button text="修改" id="b3" action="editDetail"/>
-              <af:button text="存檔" id="b4" actionListener="#{bindings.Commit.execute}"
-                         disabled="#{!bindings.Commit.enabled}"/>
-              <af:button text="取消" id="b5" actionListener="#{bindings.Rollback.execute}"
-                         disabled="#{!bindings.Rollback.enabled}" immediate="true">
-                <af:resetActionListener/>
-              </af:button>
-              <af:button text="複製一筆" id="b8" actionListener="#{dupRowBean.duplicateRowLine}"/>
-            </af:toolbar>
-          </f:facet>
-          <af:table value="#{bindings.EmployeesView3.collectionModel}" var="row"
-                    rows="#{bindings.EmployeesView3.rangeSize}"
-                    emptyText="#{bindings.EmployeesView3.viewable ? 'No data to display.' : 'Access Denied.'}"
-                    rowBandingInterval="0" selectedRowKeys="#{bindings.EmployeesView3.collectionModel.selectedRow}"
-                    selectionListener="#{bindings.EmployeesView3.collectionModel.makeCurrent}" rowSelection="single"
-                    fetchSize="#{bindings.EmployeesView3.rangeSize}"
-                    filterModel="#{bindings.EmployeesView3Query.queryDescriptor}" filterVisible="true"
-                    queryListener="#{bindings.EmployeesView3Query.processQuery}" varStatus="vs" id="t1"
-                    columnStretching="multiple" partialTriggers="::b1 ::b2">
-            <af:column sortProperty="#{bindings.EmployeesView3.hints.EmployeeId.name}" filterable="true" sortable="true"
-                       headerText="#{bindings.EmployeesView3.hints.EmployeeId.label}" id="c1" width="10%">
-              <af:inputText value="#{row.EmployeeId}" shortDesc="#{bindings.EmployeesView3.hints.EmployeeId.tooltip}"
-                            id="ot1" label="Label 1">
-                <af:convertNumber groupingUsed="false" pattern="#{bindings.EmployeesView3.hints.EmployeeId.format}"/>
+        <af:panelGroupLayout id="pgl4" halign="center" valign="top" layout="horizontal" inlineStyle="width:1000px">
+          <af:panelFormLayout id="pfl1">
+            <af:panelGroupLayout id="pgl3" halign="start" layout="horizontal">
+              <af:inputText value="#{bindings.DepartmentId.inputValue}" label="#{bindings.DepartmentId.hints.label}"
+                            required="#{bindings.DepartmentId.hints.mandatory}"
+                            columns="#{bindings.DepartmentId.hints.displayWidth}"
+                            maximumLength="#{bindings.DepartmentId.hints.precision}"
+                            shortDesc="#{bindings.DepartmentId.hints.tooltip}" id="it1" autoSubmit="true">
+                <f:validator binding="#{bindings.DepartmentId.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentId.format}"/>
               </af:inputText>
-            </af:column>
-            <af:column sortProperty="#{bindings.EmployeesView3.hints.FirstName.name}" filterable="true" sortable="true"
-                       headerText="#{bindings.EmployeesView3.hints.FirstName.label}" id="c2" width="10%">
-              <af:outputText value="#{row.FirstName}" shortDesc="#{bindings.EmployeesView3.hints.FirstName.tooltip}"
-                             id="ot2"/>
-            </af:column>
-            <af:column sortProperty="#{bindings.EmployeesView3.hints.LastName.name}" filterable="true" sortable="true"
-                       headerText="#{bindings.EmployeesView3.hints.LastName.label}" id="c3" width="10%">
-              <af:outputText value="#{row.LastName}" shortDesc="#{bindings.EmployeesView3.hints.LastName.tooltip}"
-                             id="ot3"/>
-            </af:column>
-            <af:column sortProperty="#{bindings.EmployeesView3.hints.Email.name}" filterable="true" sortable="true"
-                       headerText="#{bindings.EmployeesView3.hints.Email.label}" id="c4" width="105">
-              <af:inputText value="#{row.Email}" shortDesc="#{bindings.EmployeesView3.hints.Email.tooltip}" id="ot4"
-                            label="Label 2"/>
-            </af:column>
-            <af:column sortProperty="#{bindings.EmployeesView3.hints.PhoneNumber.name}" filterable="true"
-                       sortable="true" headerText="#{bindings.EmployeesView3.hints.PhoneNumber.label}" id="c5"
-                       width="10%">
-              <af:outputText value="#{row.PhoneNumber}" shortDesc="#{bindings.EmployeesView3.hints.PhoneNumber.tooltip}"
-                             id="ot5"/>
-            </af:column>
-            <af:column sortProperty="#{bindings.EmployeesView3.hints.HireDate.name}" filterable="true" sortable="true"
-                       headerText="#{bindings.EmployeesView3.hints.HireDate.label}" id="c6" width="10%">
-              <f:facet name="filter">
-                <af:inputDate value="#{bindings.EmployeesView3Query.queryDescriptor.filterConjunctionCriterion.criterionMap.HireDate.value}"
-                              id="id1">
+              <af:inputText value="#{bindings.DepartmentName.inputValue}" label="#{bindings.DepartmentName.hints.label}"
+                            required="#{bindings.DepartmentName.hints.mandatory}"
+                            columns="#{bindings.DepartmentName.hints.displayWidth}"
+                            maximumLength="#{bindings.DepartmentName.hints.precision}"
+                            shortDesc="#{bindings.DepartmentName.hints.tooltip}" id="it2" autoSubmit="true">
+                <f:validator binding="#{bindings.DepartmentName.validator}"/>
+              </af:inputText>
+              <af:spacer id="s4" width="10"/>
+              <af:button text="新增" id="b6" action="addMaster"/>
+              <af:spacer id="s2" width="10"/>
+              <af:button text="修改" id="b7" action="editMaster"/>
+            </af:panelGroupLayout>
+          </af:panelFormLayout>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="pgl2" halign="center" valign="top" layout="horizontal" inlineStyle="width:1000px">
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar">
+              <af:toolbar id="t2">
+                <af:button text="新增" id="b1" disabled="#{!bindings.CreateInsert.enabled}" action="addDetail"/>
+                <af:button text="刪除" id="b2" disabled="#{!bindings.Delete1.enabled}"
+                           actionListener="#{bindings.Delete1.execute}"/>
+                <af:button text="修改" id="b3" action="editDetail"/>
+                <af:button text="存檔" id="b4" actionListener="#{bindings.Commit.execute}"
+                           disabled="#{!bindings.Commit.enabled}"/>
+                <af:button text="取消" id="b5" actionListener="#{bindings.Rollback.execute}"
+                           disabled="#{!bindings.Rollback.enabled}" immediate="true">
+                  <af:resetActionListener/>
+                </af:button>
+                <af:button text="複製一筆" id="b8" actionListener="#{dupRowBean.duplicateRowLine}"/>
+              </af:toolbar>
+            </f:facet>
+            <af:table value="#{bindings.EmployeesView3.collectionModel}" var="row"
+                      rows="#{bindings.EmployeesView3.rangeSize}"
+                      emptyText="#{bindings.EmployeesView3.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.EmployeesView3.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.EmployeesView3.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.EmployeesView3.rangeSize}"
+                      filterModel="#{bindings.EmployeesView3Query.queryDescriptor}" filterVisible="true"
+                      queryListener="#{bindings.EmployeesView3Query.processQuery}" varStatus="vs" id="t1"
+                      columnStretching="multiple" partialTriggers="::b1 ::b2">
+              <af:column sortProperty="#{bindings.EmployeesView3.hints.EmployeeId.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.EmployeesView3.hints.EmployeeId.label}" id="c1"
+                         width="10%">
+                <af:inputText value="#{row.EmployeeId}" shortDesc="#{bindings.EmployeesView3.hints.EmployeeId.tooltip}"
+                              id="ot1" label="Label 1">
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.EmployeesView3.hints.EmployeeId.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.EmployeesView3.hints.FirstName.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.EmployeesView3.hints.FirstName.label}" id="c2"
+                         width="10%">
+                <af:outputText value="#{row.FirstName}" shortDesc="#{bindings.EmployeesView3.hints.FirstName.tooltip}"
+                               id="ot2"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.EmployeesView3.hints.LastName.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.EmployeesView3.hints.LastName.label}" id="c3" width="10%">
+                <af:outputText value="#{row.LastName}" shortDesc="#{bindings.EmployeesView3.hints.LastName.tooltip}"
+                               id="ot3"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.EmployeesView3.hints.Email.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.EmployeesView3.hints.Email.label}" id="c4" width="105">
+                <af:inputText value="#{row.Email}" shortDesc="#{bindings.EmployeesView3.hints.Email.tooltip}" id="ot4"
+                              label="Label 2"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.EmployeesView3.hints.PhoneNumber.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.EmployeesView3.hints.PhoneNumber.label}" id="c5"
+                         width="10%">
+                <af:outputText value="#{row.PhoneNumber}"
+                               shortDesc="#{bindings.EmployeesView3.hints.PhoneNumber.tooltip}" id="ot5"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.EmployeesView3.hints.HireDate.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.EmployeesView3.hints.HireDate.label}" id="c6" width="10%">
+                <f:facet name="filter">
+                  <af:inputDate value="#{bindings.EmployeesView3Query.queryDescriptor.filterConjunctionCriterion.criterionMap.HireDate.value}"
+                                id="id1">
+                    <af:convertDateTime pattern="#{bindings.EmployeesView3.hints.HireDate.format}"/>
+                  </af:inputDate>
+                </f:facet>
+                <af:outputText value="#{row.HireDate}" shortDesc="#{bindings.EmployeesView3.hints.HireDate.tooltip}"
+                               id="ot6">
                   <af:convertDateTime pattern="#{bindings.EmployeesView3.hints.HireDate.format}"/>
-                </af:inputDate>
-              </f:facet>
-              <af:outputText value="#{row.HireDate}" shortDesc="#{bindings.EmployeesView3.hints.HireDate.tooltip}"
-                             id="ot6">
-                <af:convertDateTime pattern="#{bindings.EmployeesView3.hints.HireDate.format}"/>
-              </af:outputText>
-            </af:column>
-            <af:column sortProperty="#{bindings.EmployeesView3.hints.JobId.name}" filterable="true" sortable="true"
-                       headerText="#{bindings.EmployeesView3.hints.JobId.label}" id="c7" width="10%">
-              <af:outputText value="#{row.JobId}" shortDesc="#{bindings.EmployeesView3.hints.JobId.tooltip}" id="ot7"/>
-            </af:column>
-            <af:column sortProperty="#{bindings.EmployeesView3.hints.Salary.name}" filterable="true" sortable="true"
-                       headerText="#{bindings.EmployeesView3.hints.Salary.label}" id="c8" width="10%">
-              <af:outputText value="#{row.Salary}" shortDesc="#{bindings.EmployeesView3.hints.Salary.tooltip}" id="ot8">
-                <af:convertNumber groupingUsed="false" pattern="#{bindings.EmployeesView3.hints.Salary.format}"/>
-              </af:outputText>
-            </af:column>
-          </af:table>
-          <f:facet name="statusbar"/>
-        </af:panelCollection>
-      </af:panelGroupLayout>
-    </af:showDetailHeader>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.EmployeesView3.hints.JobId.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.EmployeesView3.hints.JobId.label}" id="c7" width="10%">
+                <af:outputText value="#{row.JobId}" shortDesc="#{bindings.EmployeesView3.hints.JobId.tooltip}"
+                               id="ot7"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.EmployeesView3.hints.Salary.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.EmployeesView3.hints.Salary.label}" id="c8" width="10%">
+                <af:outputText value="#{row.Salary}" shortDesc="#{bindings.EmployeesView3.hints.Salary.tooltip}"
+                               id="ot8">
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.EmployeesView3.hints.Salary.format}"/>
+                </af:outputText>
+              </af:column>
+            </af:table>
+            <f:facet name="statusbar"/>
+          </af:panelCollection>
+        </af:panelGroupLayout>
+      </af:showDetailHeader>
+    </af:panelGroupLayout>
   </af:panelGroupLayout>
   <!--oracle-jdev-comment:preferred-managed-bean-name:backingBean-->
 </ui:composition>
