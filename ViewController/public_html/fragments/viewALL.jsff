@@ -23,7 +23,6 @@
               <af:spacer id="s1" width="10"/>
               <af:button text="Refresh Data" id="b10" action="#{backingBean.refreshData_action}"/>
             </af:panelGroupLayout>
-            <af:panelGroupLayout layout="vertical" id="pgl6"/>
           </af:panelGroupLayout>
         </af:panelGroupLayout>
         <af:panelGroupLayout id="pgl4" halign="center" valign="top" layout="horizontal" inlineStyle="width:1000px">
