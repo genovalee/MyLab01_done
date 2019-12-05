@@ -17,6 +17,9 @@
   <ViewUsage
     Name="EmployeesView3"
     ViewObjectName="model.view.EmployeesView"/>
+  <ViewUsage
+    Name="JobsView1"
+    ViewObjectName="model.view.JobsView"/>
   <ViewLinkUsage
     Name="EmpDeptFkLink1"
     ViewLinkObjectName="model.view.link.EmpDeptFkLink"

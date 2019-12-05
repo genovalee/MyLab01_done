@@ -37,15 +37,12 @@
         <Item Value="HireDate"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="EmployeesView3Iterator" id="JobId">
-      <AttrNames>
-        <Item Value="JobId"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="EmployeesView3Iterator" id="Salary">
       <AttrNames>
         <Item Value="Salary"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="EmployeesView3Iterator" StaticList="false" Uses="LOV_JobId" id="JobId1" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

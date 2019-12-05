@@ -40,12 +40,12 @@
       <f:validator binding="#{bindings.HireDate.validator}"/>
       <af:convertDateTime pattern="#{bindings.HireDate.format}"/>
     </af:inputDate>
-    <af:inputText value="#{bindings.JobId.inputValue}" label="#{bindings.JobId.hints.label}"
-                  required="#{bindings.JobId.hints.mandatory}" columns="#{bindings.JobId.hints.displayWidth}"
-                  maximumLength="#{bindings.JobId.hints.precision}" shortDesc="#{bindings.JobId.hints.tooltip}"
-                  id="it6">
-      <f:validator binding="#{bindings.JobId.validator}"/>
-    </af:inputText>
+    <af:selectOneChoice value="#{bindings.JobId1.inputValue}" label="#{bindings.JobId1.label}"
+                        required="#{bindings.JobId1.hints.mandatory}" shortDesc="#{bindings.JobId1.hints.tooltip}"
+                        id="soc1">
+      <f:selectItems value="#{bindings.JobId1.items}" id="si1"/>
+      <f:validator binding="#{bindings.JobId1.validator}"/>
+    </af:selectOneChoice>
     <af:inputText value="#{bindings.Salary.inputValue}" label="#{bindings.Salary.hints.label}"
                   required="#{bindings.Salary.hints.mandatory}" columns="#{bindings.Salary.hints.displayWidth}"
                   maximumLength="#{bindings.Salary.hints.precision}" shortDesc="#{bindings.Salary.hints.tooltip}"
@@ -56,6 +56,7 @@
     <f:facet name="footer">
       <af:panelGroupLayout id="pgl1">
         <af:button text="Submit" id="b1"/>
+        <af:spacer width="10" height="10" id="s1"/>
         <af:button text="Back" id="b2" action="back" immediate="true"/>
       </af:panelGroupLayout>
     </f:facet>

@@ -21,6 +21,10 @@
     Name="DepartmentsView1"
     ViewObjectName="model.view.DepartmentsView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="JobsView1"
+    ViewObjectName="model.view.JobsView"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_DepartmentId"
     ListVOName="DepartmentsView1"
@@ -37,6 +41,21 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="DepartmentName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_JobId"
+    ListVOName="JobsView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="JobId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="JobId"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -90,7 +109,15 @@
     PrecisionRule="true"
     EntityAttrName="JobId"
     EntityUsage="Employees"
-    AliasName="JOB_ID"/>
+    AliasName="JOB_ID"
+    LOVName="LOV_JobId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Salary"
     PrecisionRule="true"
