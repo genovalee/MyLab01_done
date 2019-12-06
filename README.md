@@ -1,6 +1,6 @@
-ADF MyLab01實作範例<br>
-Connection DB:hr/hr@xe<br>
-use table:Departments,Employees,Jobs<br>
+## ADF MyLab01實作範例<br>
+- Connection DB:hr/hr@xe<br>
+- use table:Departments,Employees,Jobs<br>
 
 ----------
 執行主畫面:
