@@ -18,9 +18,9 @@
         <af:panelFormLayout id="pfl1" maxColumns="2" rows="4">
           <af:inputText value="#{bindings.EmployeeId.inputValue}" label="#{bindings.EmployeeId.hints.label}"
                         required="#{bindings.EmployeeId.hints.mandatory}"
-                        columns="10"
                         maximumLength="#{bindings.EmployeeId.hints.precision}"
-                        shortDesc="#{bindings.EmployeeId.hints.tooltip}" id="it1">
+                        shortDesc="#{bindings.EmployeeId.hints.tooltip}" id="it1"
+                        columns="#{bindings.EmployeeId.hints.displayWidth}">
             <f:validator binding="#{bindings.EmployeeId.validator}"/>
             <af:convertNumber groupingUsed="false" pattern="#{bindings.EmployeeId.format}"/>
           </af:inputText>
