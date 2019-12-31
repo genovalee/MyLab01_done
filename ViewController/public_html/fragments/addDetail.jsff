@@ -15,10 +15,10 @@
         <f:facet name="menuBar"/>
         <f:facet name="legend"/>
         <f:facet name="info"/>
-        <af:panelFormLayout id="pfl1">
+        <af:panelFormLayout id="pfl1" maxColumns="2" rows="4">
           <af:inputText value="#{bindings.EmployeeId.inputValue}" label="#{bindings.EmployeeId.hints.label}"
                         required="#{bindings.EmployeeId.hints.mandatory}"
-                        columns="#{bindings.EmployeeId.hints.displayWidth}"
+                        columns="10"
                         maximumLength="#{bindings.EmployeeId.hints.precision}"
                         shortDesc="#{bindings.EmployeeId.hints.tooltip}" id="it1">
             <f:validator binding="#{bindings.EmployeeId.validator}"/>
